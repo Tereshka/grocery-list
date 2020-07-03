@@ -12,7 +12,7 @@
     "lint": "npm run lint:js",
     "generate": "nuxt build && nuxt export",
     "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build && nuxt export",
     "deploy": "push-dir --allow-unclean --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
