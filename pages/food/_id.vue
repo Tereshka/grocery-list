@@ -1,0 +1,61 @@
+<template>
+  <div>
+    <div v-if="$fetchState.pending">
+      Fetching product #{{ $route.params.id }}...
+    </div>
+    <div v-else row justify-center align-center>
+      <div class="text-center">
+        <h1>{{ product.name }}</h1>
+      </div>
+      <v-container>
+        <v-row no-gutters>
+          <v-col>
+            <v-card class="ma-3">
+              <v-img class="white--text align-end" height="auto" :src="product.img" />
+              <v-container>
+                <v-row justify="space-between">
+                  <v-col cols="auto">
+                    <h3>{{ product.description }}</h3>
+                  </v-col>
+                  <v-col
+                    cols="auto"
+                    class="text-center pl-0"
+                  >
+                    <v-chip :ripple="false" class="deep-purple accent-4 white--text">
+                      {{ `$${product.price}` }}
+                    </v-chip>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+  fetch() {
+    this.product = this.food.find(el => el.id === +this.$route.params.id);
+  },
+  data() {
+    return {
+      product: null,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      food: 'getFood',
+    }),
+  },
+  head() {
+    return {
+      title: this.product ? this.product.name : '',
+    };
+  },
+};
+</script>

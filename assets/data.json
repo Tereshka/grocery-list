@@ -1,0 +1,99 @@
+{
+  "food": [
+    {
+      "id": 1,
+      "name": "Bread",
+      "description": "A fresh piece of bread",
+      "price": 20,
+      "img": "/img/bread.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Milk",
+      "description": "A cold glass of milk",
+      "price": 54,
+      "img": "/img/milk.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Apple",
+      "description": "Sweet apples for a pie",
+      "price": 120,
+      "img": "/img/apple.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Juice",
+      "description": "Your favourite juice",
+      "price": 67,
+      "img": "/img/juice.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Meat",
+      "description": "A fresh stake",
+      "price": 358,
+      "img": "/img/meat.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Chicken",
+      "description": "Your favourite food",
+      "price": 320,
+      "img": "/img/chicken.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Rice",
+      "description": "Feel like in China",
+      "price": 83,
+      "img": "/img/rice.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Cake",
+      "description": "Some pleasure in your life",
+      "price": 230,
+      "img": "/img/cake.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Banana",
+      "description": "Ba-na-na!",
+      "price": 180,
+      "img": "/img/banana.png"
+    },
+    {
+      "id": 10,
+      "name": "Coffee beans",
+      "description": "Just add some water",
+      "price": 20,
+      "img": "/img/coffee.jpg"
+    }
+  ],
+  "groceryLists": [
+    {
+      "id": 1,
+      "date": 1593767280341,
+      "sum": 852,
+      "food": [
+        {
+          "id": 2,
+          "check": true
+        },
+        {
+          "id": 3,
+          "check": true
+        },
+        {
+          "id": 5,
+          "check": true
+        },
+        {
+          "id": 6,
+          "check": false
+        }
+      ]
+    }
+  ]
+}
