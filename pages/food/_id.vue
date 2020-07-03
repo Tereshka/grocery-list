@@ -11,7 +11,7 @@
         <v-row no-gutters>
           <v-col>
             <v-card class="ma-3">
-              <v-img class="white--text align-end" height="auto" :src="product.img" />
+              <v-img class="white--text align-end" height="auto" :src="`${STATIC_PATH}/${product.img}`" />
               <v-container>
                 <v-row justify="space-between">
                   <v-col cols="auto">

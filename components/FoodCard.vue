@@ -1,7 +1,7 @@
 <template>
   <v-card class="ma-3">
     <NuxtLink :to="'/food/'+product.id">
-      <v-img class="white--text align-end" height="auto" :src="product.img" />
+      <v-img class="white--text align-end" height="auto" :src="`${STATIC_PATH}/${product.img}`" />
     </NuxtLink>
     <v-container>
       <v-row justify="space-between">
