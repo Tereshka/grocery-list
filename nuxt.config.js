@@ -1,13 +1,12 @@
 import colors from 'vuetify/es5/util/colors';
+import webpack from 'webpack';
 
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: '/grocery-list/'
-  }
-} : {};
+const PRODUCTION_BASE_PATH = '/grocery-list/';
 
 export default {
-  ...routerBase,
+  router: {
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? PRODUCTION_BASE_PATH : '/',
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -31,7 +30,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: './favicon.ico' },
     ],
   },
   /*
@@ -44,6 +43,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/static-mixin.js',
   ],
   /*
   ** Auto import components
@@ -94,5 +94,10 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    extend(config, { isDev }) {
+      config.plugins.push(new webpack.DefinePlugin({
+        STATIC_PATH: JSON.stringify(isDev ? '' : PRODUCTION_BASE_PATH)
+      }));
+    },
   },
 };
