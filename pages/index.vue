@@ -44,8 +44,10 @@ export default {
     this.setFood(dataJSON.food);
   },
   methods: {
-    ...mapMutations([
+    ...mapMutations('groceryLists', [
       'setGroceryLists',
+    ]),
+    ...mapMutations('food', [
       'setFood'
     ]),
   },

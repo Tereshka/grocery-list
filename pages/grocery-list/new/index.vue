@@ -33,10 +33,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters('groceryLists', {
       groceryLists: 'getGroceryLists',
-      food: 'getFood',
       newListId: 'getNewListId',
+    }),
+    ...mapGetters('food', {
+      food: 'getFood',
     }),
     currentFood() {
       const foods = this.list.food.map((f) => {
@@ -54,7 +56,7 @@ export default {
     this.createNewGroceryList();
   },
   methods: {
-    ...mapMutations([
+    ...mapMutations('groceryLists', [
       'createNewGroceryList'
     ]),
   },

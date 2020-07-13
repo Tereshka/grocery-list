@@ -51,7 +51,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters('groceryLists', {
       groceryLists: 'getGroceryLists',
     }),
     sortedGroceryLists() {

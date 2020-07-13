@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="$fetchState.pending">
+    <div v-if="list === undefined || list === null">
       Fetching grocery list #{{ $route.params.id }}...
     </div>
     <div v-else>
@@ -24,19 +24,16 @@ export default {
     FoodContainer,
     AddNewFood,
   },
-  fetch() {
-    this.list = this.groceryLists.find(el => el.id === +this.$route.params.id);
-  },
-  data() {
-    return {
-      list: null,
-    };
-  },
   computed: {
-    ...mapGetters({
+    ...mapGetters('groceryLists', {
       groceryLists: 'getGroceryLists',
+    }),
+    ...mapGetters('food', {
       food: 'getFood',
     }),
+    list() {
+      return this.groceryLists.find(el => el.id === +this.$route.params.id);
+    },
     currentFood() {
       const foods = this.list.food.map((f) => {
         const checkFood = this.food.find(el => el.id === f.id);

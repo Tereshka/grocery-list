@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default {
   props: {
@@ -35,13 +35,15 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters('food', {
       food: 'getFood',
     }),
   },
   methods: {
-    ...mapMutations([
+    ...mapMutations('groceryLists', [
       'addFoodInList',
+    ]),
+    ...mapActions('groceryLists', [
       'countSum',
     ]),
     addToList() {

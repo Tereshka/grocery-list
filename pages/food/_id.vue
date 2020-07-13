@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="$fetchState.pending">
+    <div v-if="product === undefined || product === null">
       Fetching product #{{ $route.params.id }}...
     </div>
     <div v-else row justify-center align-center>
@@ -39,18 +39,13 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  fetch() {
-    this.product = this.food.find(el => el.id === +this.$route.params.id);
-  },
-  data() {
-    return {
-      product: null,
-    };
-  },
   computed: {
-    ...mapGetters({
+    ...mapGetters('food', {
       food: 'getFood',
     }),
+    product() {
+      return this.food.find(el => el.id === +this.$route.params.id);
+    },
   },
   head() {
     return {

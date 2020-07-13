@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 
 export default {
   props: {
@@ -57,9 +57,11 @@ export default {
     },
   },
   methods: {
-    ...mapMutations([
+    ...mapMutations('groceryLists', [
       'toogleFoodInList',
       'removeFoodFromList',
+    ]),
+    ...mapActions('groceryLists', [
       'countSum',
     ]),
     toogleCart() {

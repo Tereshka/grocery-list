@@ -17,7 +17,7 @@ export default {
     FoodContainer,
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters('food', {
       food: 'getFood',
     }),
   },
